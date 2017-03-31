@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>网站管理</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" href="./js/lib/bootstrap-table-master/dist/bootstrap-table.min.css" />
+    <link rel="stylesheet" href="./js/lib/datetimepicker/jquery.datetimepicker.css" type="text/css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./js/lib/sweetalert/sweetalert.css" type="text/css" />
+
+    <!--<link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.min.css" />-->
+    <script type="text/javascript" src="./js/lib/jquery-2.2.0/dist/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="js/lib/ckeditor/ckeditor.js"></script>-->
+    <script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
+    <script type="text/javascript">
+        $.ajax({
+            url: "/api/Version",
+            type: "get",
+            dataType: "json",
+            data: null,
+            async: false,
+            success: function (e) {
+                window.version = e;
+            },
+            error: function () {
+                window.version = "0";
+            }
+        });
+
+        String.prototype.addFileVersion = function () {
+            if (this.indexOf(".js") == -1 && this.indexOf(".html") == -1) {
+                return this + ".js?v=" + version;
+            }
+            else {
+                return this + "?v=" + version;
+            }
+        }
+    </script>
+
+    <script type="text/javascript" src="./js/lib/requireJS/require.js" data-main="./js/main"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZRvdyL6Er4MMauwO7w58QGpLYSGsGFfk"></script>
+</head>
+<body>
+    <div class="container-fluid padding0">
+        <!-- 顶部 -->
+        <header class="col-xs-12 header">
+            <div class="logo">
+                <img src="img/logo.svg" />
+            </div>
+            <div class="word">
+                <span>Manager</span>
+            </div>
+        </header>
+
+        <div class="col-xs-12 content">
+            <!-- 左侧菜单 -->
+            <div class="leftmenus padding0">
+                <ul>
+                    <li id="userManage" ui-sref="productlist" class="_user">
+                        <span class="first_name"><span class="glyphicon glyphicon-list-alt" style="margin-right: 15px;"></span>产品管理</span>
+                    </li>
+                    <li ui-sref="indexconfig" class="_act">
+                        <span class="first_name"><span class="glyphicon glyphicon-list-alt" style="margin-right: 15px;"></span>主页设置</span>
+                    </li>
+                    <li id="exceptionLog" ui-sref="exceptionlog" class="_yichang">
+                        <span class="first_name"><span class="glyphicon glyphicon-cog" style="margin-right: 15px;"></span>系统异常日志</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- 右侧内容 -->
+            <div class="rightmenus" ui-view>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

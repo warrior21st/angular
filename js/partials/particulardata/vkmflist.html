@@ -1,0 +1,7 @@
+﻿<div class="col-xs-12 _table">
+    <span style="float: left; margin-top: 30px; font-weight: normal;">
+        奖品数量情况（已抽掉/总数）：{{prizeNumbersStr}}</span>
+    <div style="float: left; margin-top: 15px;margin-left:28%;">奖品类型：<select ng-options="item.value as item.name for item in prizeTypes" ng-model="prizeType" ng-change="choosePrizeType()"></select></div>
+    <button class="btn btn-default columns-right pull-right btn-group addbtn" ng-click="exportZhhqPWinrizeTable()" title="导出" style="margin-top: 10px;">导出Excel</button>
+    <table id="zhhqPWinrizeTable"></table>
+</div>
