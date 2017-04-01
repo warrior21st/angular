@@ -64,7 +64,7 @@
         'ui.router',
         'ui.bootstrap'
     ]);
-
+    require(["./js/controllers/dialogs/uploadimage-ctrl.js"], function () {  });
     // config
     app.config(["$stateProvider", "$urlRouterProvider", registerRoutes]);
 

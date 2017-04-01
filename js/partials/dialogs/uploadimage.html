@@ -1,0 +1,26 @@
+﻿<div class="panel panel-default" style="height:100%;">
+    <div class="panel-heading">
+        上传图片
+    </div>
+    <div class="panel-body">
+        <div class="row" ng-bind="test"></div>
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-3"><button class="btn btn-default" ng-click="chooseImageFile()">选择图片</button></div>
+            <div class="col-lg-4" style="color:red;" ng-bind="tips"></div>
+            <div class="col-lg-4" style="color:black;">注：GIF在上传预览无法显示动态，上传后可正常显示</div>
+        </div>
+        <div class="row" style="margin-top:10px;">
+            <div class="col-lg-1">预览</div>
+            <div class="col-lg-8" style="padding:5px 5px 5px 5px;border:1px solid #c4c4c4;width:410px;height:410px;display:flex;justify-content:center;align-items:center;">
+                <img ng-src="{{imageUri}}" />
+            </div>
+            <div class="col-lg-2" style="display:flex;justify-content:center;align-items:center;">
+                <button class="btn btn-primary" ng-click="uploadImage()">上传</button>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="file" name="file" id="uploadInput" style="display:none;" />
+
+<div style="display:none;" ng-init="init()"></div>

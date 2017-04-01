@@ -96,14 +96,11 @@
                 loading.show();
             }());
         }
-
         $('#mask_public').show();
-        $(document.body).addClass('modal-open');
     };
 
     utils.prototype.hideMask = function () {
         $('#mask_public').hide();
-        $(document.body).removeClass('modal-open');
     }
 
     utils.prototype.getUserRole = function () {
